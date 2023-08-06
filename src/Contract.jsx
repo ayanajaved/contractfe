@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import './App.css'
 import Axios from 'axios'
 
-const url = "http://localhost:3001/products";
+
+const url = "http://18.219.239.121:3001/products";
 
 class Contract extends Component {
 
@@ -35,18 +36,18 @@ class Contract extends Component {
     render() {
     return (
       <div>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">About</a></li>
-      </ul>
-      <br />&nbsp;<br />
+     <div className="bigBox">
+     <div>
+   
       <form onSubmit={this.handleSubmit}>
         <textarea value = {this.state.contract} onChange={this.handleContractChange} placeholder = "Copy-Paste your contract here" rows="10" cols="50"></textarea>
         <br></br>
         <button type="submit">Summarize</button>
       </form>
-      <p id="content-holder">Your Summarized Contract will appear here shortly ...</p>
+      
+      <div className="box" id="content-holder">Your Summarized Contract will appear here shortly ...</div>
+      </div>
+      </div>
       </div>
     )
   }
