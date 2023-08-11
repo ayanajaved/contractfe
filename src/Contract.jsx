@@ -50,13 +50,15 @@ class Contract extends Component {
      <div>
    
       <form onSubmit={this.handleSubmit}>
-        <textarea id="input" value = {this.state.contract} onChange={this.handleContractChange} placeholder = "Copy-Paste your contract here (Limit 2000 words)" rows="10" cols="50"></textarea>
+        <div className="input">
+        <textarea className="textarea" id="input" value = {this.state.contract} onChange={this.handleContractChange} placeholder = "Copy-Paste your contract here (Limit 2000 words)"></textarea>
+        </div>
         <br></br> 
         <p id = "wordCount">Word Count: {this.countWords()}</p>
         <button type="submit">Summarize</button>
       </form>
       
-      <div className="box" id="content-holder">Your Summarized Contract will appear after submitting</div>
+      <div className="result" id="content-holder">Your Summarized Contract will appear after submitting</div>
       </div>
       </div>
       </div>
