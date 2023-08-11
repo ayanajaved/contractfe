@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
-import './App.css'
-import Axios from 'axios'
+import React, { Component } from 'react';
+import { useState } from 'react';
+import './App.css';
+import Axios from 'axios';
 
 
-const url = "http://18.219.239.121:3001/products";
+const url = "http://18.116.174.228:3001/products";
+const websitePitch = "Let's simplify law jargons becuase Law Is For Everyone.";
 
 class Contract extends Component {
 
@@ -15,11 +17,18 @@ class Contract extends Component {
         }
     }
 
+
     handleContractChange = event =>{
         this.setState({
             contract: event.target.value
         })
     }
+
+    // Function to calculate the word count
+  countWords = () => {
+    return this.state.contract.trim().split(/\s+/).filter(Boolean).length;
+  };
+
     handleSubmit = event => {
         //MOST IMPORTANT VARIABLE!!!! send to backend
         const contractInfo = (`${this.state.contract}`)
@@ -30,22 +39,24 @@ class Contract extends Component {
         callBackend(contractInfo);
         event.preventDefault()
     }
-    
-  
+
   
     render() {
     return (
       <div>
+        <p className="header1">Let's simplify law jargons becuase</p>
+        <p className="header2">Law Is For Everyone.</p>
      <div className="bigBox">
      <div>
    
       <form onSubmit={this.handleSubmit}>
-        <textarea value = {this.state.contract} onChange={this.handleContractChange} placeholder = "Copy-Paste your contract here" rows="10" cols="50"></textarea>
-        <br></br>
+        <textarea id="input" value = {this.state.contract} onChange={this.handleContractChange} placeholder = "Copy-Paste your contract here (Limit 2000 words)" rows="10" cols="50"></textarea>
+        <br></br> 
+        <p id = "wordCount">Word Count: {this.countWords()}</p>
         <button type="submit">Summarize</button>
       </form>
       
-      <div className="box" id="content-holder">Your Summarized Contract will appear here shortly ...</div>
+      <div className="box" id="content-holder">Your Summarized Contract will appear after submitting</div>
       </div>
       </div>
       </div>
@@ -65,6 +76,8 @@ function callBackend(contractMessage) {
   )
   
 }
+
+
 
 
 export default Contract

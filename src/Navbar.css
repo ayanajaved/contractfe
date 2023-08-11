@@ -1,0 +1,39 @@
+/* Navbar.css */
+
+.navbar {
+    background-color: #106fae;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin: 0 10px;
+  }
+  
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .active {
+    background-color: #555555;
+  }
+  
+  .company-logo img {
+    width: 100px; /* Adjust the logo size as needed */
+    height: 100px; /* Adjust the logo size as needed */
+  }
+  
+  .company-logo img:hover {
+    /* Add hover effect if needed */
+  }

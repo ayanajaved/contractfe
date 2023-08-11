@@ -1,30 +1,31 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'
 import './App.css';
 import Contract from './Contract';
 import Navbar from './Navbar';
 import * as ReactBootStrap from "react-bootstrap";
-import { BrowserRouter as Router, Routes, Route }
-    from 'react-router-dom';
 import Contact from './Contact';
 import About from './About';
 
+
+
 function App(){
-  return <div>
-    <Router>
+
+    return (
+        <Router>
+          <div>
             <Navbar />
-  
-            <Routes>
-            <Route path='/' elements={<Contract />}/>
-            <Route path='/Contract' elements={<Contract />}/>
-                <Route path='/Contact' element={<Contact />} />
-                <Route path='/About' element={<About />} />
-            </Routes>
-            </Router>
-            <Contract/>
-
-      
-  </div>
-
+            <main>
+              {/* Define your routes here */}
+              <Routes>
+                <Route path="/" element={<Contract />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </main>
+          </div>
+        </Router>
+      );
 
 }
 
